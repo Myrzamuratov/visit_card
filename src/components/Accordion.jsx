@@ -5,6 +5,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export default function AccordionElem({ item }) {
   return (
@@ -24,7 +26,14 @@ export default function AccordionElem({ item }) {
         aria-controls="panel2-content"
         id="panel2-header"
       >
-        <Box sx={{ width: "300px", textAlign: "center" }}>
+        <Box
+          sx={{
+            width: "300px",
+            textAlign: "center",
+            height: "30px",
+            paddingBottom: "10px",
+          }}
+        >
           <Typography>{item.name1}</Typography>
           <Typography>{item.name2}</Typography>
         </Box>
@@ -51,8 +60,28 @@ export default function AccordionElem({ item }) {
           ))}
         </ul>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography>{item.price}</Typography>
-          <Typography sx={{ textAlign: "end" }}>{item.time}</Typography>
+          <Typography
+            sx={{
+              display: "flex",
+              color: "#ffffcc",
+              justifyContent: "start",
+              fontWeight: "bold",
+            }}
+          >
+            <LocalOfferIcon />
+            {item.price}
+          </Typography>
+          <Typography
+            sx={{
+              display: "flex",
+              color: "#90EE90",
+              justifyContent: "end",
+              fontWeight: "bold",
+            }}
+          >
+            <AccessTimeIcon />
+            {item.time}
+          </Typography>
         </Box>
       </AccordionDetails>
     </Accordion>
